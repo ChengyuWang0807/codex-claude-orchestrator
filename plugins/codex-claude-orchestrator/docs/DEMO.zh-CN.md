@@ -29,18 +29,18 @@ Claude Code = 执行面
 可以直接贴给 Codex：
 
 ```text
-Use the `cco` MCP server to demonstrate Codex controlling Claude Code.
+请使用 `cco` MCP server 演示 Codex 如何控制 Claude Code。
 
-1. Run `cco_doctor`.
-2. Run `cco_list_tasks`.
-3. Run the `claude-doc-preview` task.
-4. Inspect the latest run status.
-5. Do not apply the preview artifact yet.
-6. Tell me:
-   - which steps were executed through `cco`,
-   - which part stayed in Codex,
-   - where the preview artifact was written,
-   - whether the validation checks passed.
+1. 运行 `cco_doctor`。
+2. 运行 `cco_list_tasks`。
+3. 执行 `claude-doc-preview` 任务。
+4. 检查最新一次运行状态。
+5. 先不要 apply preview artifact。
+6. 最后告诉我：
+   - 哪些步骤是通过 `cco` 执行的，
+   - 哪些部分仍然由 Codex 自己负责，
+   - preview artifact 被写到了哪里，
+   - validation checks 是否通过。
 ```
 
 这个 demo 证明了：
@@ -63,16 +63,16 @@ Use the `cco` MCP server to demonstrate Codex controlling Claude Code.
 可以直接贴给 Codex：
 
 ```text
-Use the `cco` MCP server to run the `claude-doc-preview` task, inspect the preview, and apply it only if validation passed.
+请使用 `cco` MCP server 运行 `claude-doc-preview` 任务，检查 preview，并且只在 validation passed 的情况下才 apply。
 
-Workflow:
-1. Run the task through `cco`.
-2. Check the latest run status.
-3. If validation passed, apply the preview artifact.
-4. Report:
-   - whether the apply step happened,
-   - the final generated file path,
-   - which validation checks were used as the gate.
+工作流要求：
+1. 通过 `cco` 运行该任务。
+2. 检查最新一次运行状态。
+3. 如果 validation passed，则 apply preview artifact。
+4. 最后汇报：
+   - 是否真的执行了 apply，
+   - 最终生成文件的路径，
+   - 这次作为闸门使用了哪些 validation checks。
 ```
 
 这个 demo 证明了：
@@ -94,12 +94,12 @@ examples/workspace/generated/control-plane-vs-execution-plane.md
 可以直接贴给 Codex：
 
 ```text
-Use the `cco` MCP server to prove that Claude Code can stay bound to a persistent task session.
+请使用 `cco` MCP server 证明 Claude Code 可以绑定到一个持久任务会话。
 
-1. Run `claude-doc-preview` twice.
-2. Run `cco_list_sessions`.
-3. Show whether both runs reused the same task-session binding.
-4. Explain why `sessionMode: single` matters for iterative document work.
+1. 连续运行两次 `claude-doc-preview`。
+2. 运行 `cco_list_sessions`。
+3. 说明这两次运行是否复用了同一个 task-session binding。
+4. 解释为什么 `sessionMode: single` 对迭代式文档工作很重要。
 ```
 
 这个 demo 证明了：
@@ -115,16 +115,16 @@ Use the `cco` MCP server to prove that Claude Code can stay bound to a persisten
 可以直接贴给 Codex：
 
 ```text
-Use the `cco` MCP server to compare `claude-doc-preview` and `codex-doc-preview`.
+请使用 `cco` MCP server 对比 `claude-doc-preview` 和 `codex-doc-preview`。
 
-1. Run both tasks in preview mode.
-2. Inspect both run statuses.
-3. Compare:
-   - provider kind,
-   - session behavior,
-   - validation result,
-   - preview artifact location.
-4. Explain when the Claude execution plane is a better choice than the Codex execution plane.
+1. 以 preview mode 运行这两个任务。
+2. 检查它们各自的 run status。
+3. 对比：
+   - provider kind，
+   - session behavior，
+   - validation result，
+   - preview artifact location。
+4. 解释在什么情况下，Claude execution plane 比 Codex execution plane 更合适。
 ```
 
 这个 demo 证明了：
@@ -140,12 +140,12 @@ Use the `cco` MCP server to compare `claude-doc-preview` and `codex-doc-preview`
 可以直接贴给 Codex：
 
 ```text
-Use the `cco` MCP server to demonstrate the preview-first pipeline without any external executor.
+请使用 `cco` MCP server 演示一条不依赖外部执行器的 preview-first pipeline。
 
-1. Run `mock-doc-preview`.
-2. Inspect the run status.
-3. Explain which parts of the pipeline are still real even though the provider is mocked.
-4. Tell me what this demo proves about the orchestration layer itself.
+1. 运行 `mock-doc-preview`。
+2. 检查 run status。
+3. 解释虽然 provider 是 mocked，但这条 pipeline 里哪些部分仍然是真实能力。
+4. 告诉我这个 demo 本身证明了编排层的哪些能力。
 ```
 
 这个 demo 证明了：

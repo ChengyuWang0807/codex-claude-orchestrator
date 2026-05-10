@@ -159,14 +159,18 @@ node .\scripts\test-mcp-server.mjs
 可以直接贴给 Codex 的最小演示词：
 
 ```text
-Use the `cco` MCP server to demonstrate Codex controlling Claude Code.
+请使用 `cco` MCP server 演示 Codex 如何控制 Claude Code。
 
-1. Run `cco_doctor`.
-2. Run `cco_list_tasks`.
-3. Run the `claude-doc-preview` task.
-4. Inspect the latest run status.
-5. Do not apply the preview artifact yet.
-6. Tell me which work stayed in Codex, which work was delegated to Claude Code, where the preview artifact was written, and whether validation passed.
+1. 运行 `cco_doctor`。
+2. 运行 `cco_list_tasks`。
+3. 执行 `claude-doc-preview` 任务。
+4. 检查最新一次 run status。
+5. 先不要 apply preview artifact。
+6. 最后告诉我：
+   - 哪些工作仍然由 Codex 负责，
+   - 哪些工作被委派给了 Claude Code，
+   - preview artifact 被写到了哪里，
+   - validation 是否通过。
 ```
 
 ## MCP 工具列表
