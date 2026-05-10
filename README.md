@@ -48,18 +48,19 @@ Use the dedicated installation guide for another computer:
 
 ## What to tell Codex
 
-After opening this repository in Codex, you can paste this directly:
+If you want Codex to handle the whole deployment flow for you, paste this directly:
 
 ```text
-Please deploy and verify codex-claude-orchestrator in this repository.
+Please deploy and verify codex-claude-orchestrator from GitHub using HTTPS only.
 
-1. Go to `plugins/codex-claude-orchestrator`.
-2. If Codex login is required, tell me to run `codex login --with-api-key` first.
-3. Run `powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force`.
-4. Run `codex mcp get cco --json`.
-5. Run `node .\scripts\test-mcp-server.mjs`.
-6. Run `node .\bin\cco.mjs run --config .\examples\tasks\mock-doc-preview.json --json`.
-7. Tell me whether installation, MCP wiring, and the mock preview workflow all succeeded. If anything fails, show the failing step and the fix.
+1. Clone `https://github.com/ChengyuWang0807/codex-claude-orchestrator.git`.
+2. Enter `.\codex-claude-orchestrator\plugins\codex-claude-orchestrator`.
+3. If Codex login is required, tell me to run `codex login --with-api-key` first.
+4. Run `powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force`.
+5. Run `codex mcp get cco --json`.
+6. Run `node .\scripts\test-mcp-server.mjs`.
+7. Run `node .\bin\cco.mjs run --config .\examples\tasks\mock-doc-preview.json --json`.
+8. Tell me whether clone, installation, MCP wiring, and the mock preview workflow all succeeded. If anything fails, show the failing step and the fix.
 ```
 
 ## Validation

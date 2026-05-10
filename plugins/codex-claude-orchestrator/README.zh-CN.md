@@ -66,18 +66,19 @@ plugins/codex-claude-orchestrator/
 
 ## 直接对 Codex 说什么
 
-如果你是在 Codex 里打开这个仓库，并且想让 Codex 直接替你完成部署，可以把这段话原样发给它：
+如果你想让 Codex 从零开始直接替你完成部署，可以把这段话原样发给它：
 
 ```text
-请帮我在这个仓库里部署并验证 codex-claude-orchestrator。
+请通过 HTTPS 从 GitHub 拉取并部署 codex-claude-orchestrator，然后完成验证。
 
-1. 进入 `plugins/codex-claude-orchestrator`。
-2. 如果需要先登录 Codex，请提醒我执行 `codex login --with-api-key`。
-3. 运行 `powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force`。
-4. 运行 `codex mcp get cco --json`。
-5. 运行 `node .\scripts\test-mcp-server.mjs`。
-6. 运行 `node .\bin\cco.mjs run --config .\examples\tasks\mock-doc-preview.json --json`。
-7. 最后告诉我安装、MCP 接线、mock preview 工作流是否都成功了；如果失败，请指出失败步骤和修复方法。
+1. 克隆 `https://github.com/ChengyuWang0807/codex-claude-orchestrator.git`。
+2. 进入 `.\codex-claude-orchestrator\plugins\codex-claude-orchestrator`。
+3. 如果需要先登录 Codex，请提醒我执行 `codex login --with-api-key`。
+4. 运行 `powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force`。
+5. 运行 `codex mcp get cco --json`。
+6. 运行 `node .\scripts\test-mcp-server.mjs`。
+7. 运行 `node .\bin\cco.mjs run --config .\examples\tasks\mock-doc-preview.json --json`。
+8. 最后告诉我拉取、安装、MCP 接线、mock preview 工作流是否都成功了；如果失败，请指出失败步骤和修复方法。
 ```
 
 ### 方案 1：Codex 插件 + MCP
