@@ -39,11 +39,12 @@ cd <repo-root>\plugins\codex-claude-orchestrator
 powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force
 ```
 
-## 异机安装指南
+## 安装文档
 
-如果你是在另一台电脑上测试，请看这份文档：
+项目提供以下安装文档：
 
-- [plugins/codex-claude-orchestrator/docs/INSTALL.md](./plugins/codex-claude-orchestrator/docs/INSTALL.md)
+- [Install Guide (EN)](./plugins/codex-claude-orchestrator/docs/INSTALL.md)
+- [安装指南 (ZH-CN)](./plugins/codex-claude-orchestrator/docs/INSTALL.zh-CN.md)
 
 ## Demo 展示入口
 

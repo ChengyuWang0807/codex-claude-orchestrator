@@ -58,11 +58,12 @@ plugins/codex-claude-orchestrator/
   skills/
 ```
 
-## Install paths
+## Installation guides
 
-If you are testing on another computer, start with the dedicated guide:
+The project ships with dedicated installation guides:
 
-- [Install Guide](./docs/INSTALL.md)
+- [Install Guide (EN)](./docs/INSTALL.md)
+- [安装指南 (ZH-CN)](./docs/INSTALL.zh-CN.md)
 
 ## Reinstall for iterative testing
 

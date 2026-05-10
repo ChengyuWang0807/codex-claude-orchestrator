@@ -58,11 +58,12 @@ plugins/codex-claude-orchestrator/
   skills/
 ```
 
-## 安装路径
+## 安装文档
 
-如果你是在另一台电脑上测试，优先看：
+项目内置了以下安装文档：
 
-- [Install Guide](./docs/INSTALL.md)
+- [Install Guide (EN)](./docs/INSTALL.md)
+- [安装指南 (ZH-CN)](./docs/INSTALL.zh-CN.md)
 
 ## 迭代测试时如何先卸载旧版本
 

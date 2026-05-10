@@ -40,11 +40,12 @@ cd <repo-root>\plugins\codex-claude-orchestrator
 powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force
 ```
 
-## Fresh-machine guide
+## Installation guides
 
-Use the dedicated installation guide for another computer:
+Use the dedicated installation guides:
 
-- [plugins/codex-claude-orchestrator/docs/INSTALL.md](./plugins/codex-claude-orchestrator/docs/INSTALL.md)
+- [Install Guide (EN)](./plugins/codex-claude-orchestrator/docs/INSTALL.md)
+- [安装指南 (ZH-CN)](./plugins/codex-claude-orchestrator/docs/INSTALL.zh-CN.md)
 
 ## Demo gallery
 
