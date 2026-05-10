@@ -46,6 +46,22 @@ Use the dedicated installation guide for another computer:
 
 - [plugins/codex-claude-orchestrator/docs/INSTALL.md](./plugins/codex-claude-orchestrator/docs/INSTALL.md)
 
+## What to tell Codex
+
+After opening this repository in Codex, you can paste this directly:
+
+```text
+Please deploy and verify codex-claude-orchestrator in this repository.
+
+1. Go to `plugins/codex-claude-orchestrator`.
+2. If Codex login is required, tell me to run `codex login --with-api-key` first.
+3. Run `powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force`.
+4. Run `codex mcp get cco --json`.
+5. Run `node .\scripts\test-mcp-server.mjs`.
+6. Run `node .\bin\cco.mjs run --config .\examples\tasks\mock-doc-preview.json --json`.
+7. Tell me whether installation, MCP wiring, and the mock preview workflow all succeeded. If anything fails, show the failing step and the fix.
+```
+
 ## Validation
 
 From the plugin root:
