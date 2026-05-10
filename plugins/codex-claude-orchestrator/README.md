@@ -53,6 +53,8 @@ plugins/codex-claude-orchestrator/
     cco.mjs
     cco-mcp-server.mjs
   docs/
+    en/
+    zh-CN/
   examples/
   scripts/
   skills/
@@ -62,8 +64,8 @@ plugins/codex-claude-orchestrator/
 
 The project ships with dedicated installation guides:
 
-- [Install Guide (EN)](./docs/INSTALL.md)
-- [安装指南 (ZH-CN)](./docs/INSTALL.zh-CN.md)
+- [Install Guide (EN)](./docs/en/INSTALL.md)
+- [安装指南 (ZH-CN)](./docs/zh-CN/INSTALL.md)
 
 ## Reinstall for iterative testing
 
@@ -147,8 +149,8 @@ The bundled MCP smoke test covers:
 
 If you want to show the specific story of "Codex commands Claude Code through `codex-claude-orchestrator`", use the demo guide:
 
-- [Demo Guide](./docs/DEMO.md)
-- [简体中文](./docs/DEMO.zh-CN.md)
+- [Demo Guide](./docs/en/DEMO.md)
+- [简体中文](./docs/zh-CN/DEMO.md)
 
 The most useful live demos are:
 

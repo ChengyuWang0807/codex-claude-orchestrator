@@ -53,6 +53,8 @@ plugins/codex-claude-orchestrator/
     cco.mjs
     cco-mcp-server.mjs
   docs/
+    en/
+    zh-CN/
   examples/
   scripts/
   skills/
@@ -62,8 +64,8 @@ plugins/codex-claude-orchestrator/
 
 项目内置了以下安装文档：
 
-- [Install Guide (EN)](./docs/INSTALL.md)
-- [安装指南 (ZH-CN)](./docs/INSTALL.zh-CN.md)
+- [Install Guide (EN)](./docs/en/INSTALL.md)
+- [安装指南 (ZH-CN)](./docs/zh-CN/INSTALL.md)
 
 ## 迭代测试时如何先卸载旧版本
 
@@ -147,8 +149,8 @@ node .\scripts\test-mcp-server.mjs
 
 如果你想重点展示“Codex 通过 `codex-claude-orchestrator` 指挥 Claude Code”这个故事，建议直接使用 demo 指南：
 
-- [Demo Guide](./docs/DEMO.md)
-- [简体中文](./docs/DEMO.zh-CN.md)
+- [Demo Guide](./docs/en/DEMO.md)
+- [简体中文](./docs/zh-CN/DEMO.md)
 
 最适合现场展示的几组 demo 是：
 

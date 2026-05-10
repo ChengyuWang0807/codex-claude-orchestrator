@@ -1,43 +1,44 @@
-# Install Guide
+# 安装指南
 
-[English](./INSTALL.md) | [简体中文](./INSTALL.zh-CN.md)
+[English](../en/INSTALL.md) | [简体中文](./INSTALL.md)
 
-## Scope
+## 适用范围
 
-This guide is the fastest Windows-first path for installing and validating the extension on a fresh machine.
+这份文档提供一条以 Windows 为优先的安装与验证路径，适合在新机器上快速完成 `codex-claude-orchestrator` 的部署。
 
-If you only want to know whether the project is usable on a fresh machine, use the **mock** path first. It does not depend on Claude Code.
+如果只是想先确认项目是否可用，建议优先使用 **mock** 路径，因为它不依赖 Claude Code。
 
-## Prerequisites
+## 前置条件
 
-Install these first:
+请先准备：
 
-- Node.js 20 or newer
+- Node.js 20 或更高版本
 - Codex CLI
 
-Optional:
+可选：
 
-- Claude Code CLI, if you want to test the `claude` provider
+- Claude Code CLI
+  仅在需要测试 `claude` provider 时才需要
 
-## Option A: Test from the packaged release
+## 方案 A：从打包后的 release 安装
 
-This is the best approximation of what external users will do.
+这是最接近外部用户实际使用方式的安装路径。
 
-### 1. Copy the release zip to the other computer
+### 1. 将 release zip 放到目标机器
 
-Use:
+使用：
 
 ```text
 plugins/codex-claude-orchestrator/dist/codex-claude-orchestrator-v0.2.0.zip
 ```
 
-Unzip it anywhere, for example:
+解压到任意目录，例如：
 
 ```text
 D:\tools\codex-claude-orchestrator-v0.2.0\
 ```
 
-After unzipping, you should have:
+解压后目录应如下所示：
 
 ```text
 <release-root>\
@@ -45,63 +46,63 @@ After unzipping, you should have:
   plugins\codex-claude-orchestrator\
 ```
 
-### 2. Log in to Codex
+### 2. 登录 Codex
 
-If the machine uses API only:
+如果目标机器使用 API key 模式：
 
 ```powershell
 codex login --with-api-key
 ```
 
-### 3. Register the marketplace root
+### 3. 注册 marketplace 根目录
 
 ```powershell
 codex plugin marketplace add <release-root>
 ```
 
-Example:
+示例：
 
 ```powershell
 codex plugin marketplace add D:\tools\codex-claude-orchestrator-v0.2.0
 ```
 
-### 4. Register the MCP server
+### 4. 注册 MCP server
 
-The most explicit path is:
+最明确的写法是：
 
 ```powershell
 codex mcp add codex-claude-orchestrator -- node <plugin-root>\bin\cco-mcp-server.mjs
 ```
 
-Example:
+示例：
 
 ```powershell
 codex mcp add codex-claude-orchestrator -- node D:\tools\codex-claude-orchestrator-v0.2.0\plugins\codex-claude-orchestrator\bin\cco-mcp-server.mjs
 ```
 
-You can also use the bundled installer:
+也可以直接使用内置安装脚本：
 
 ```powershell
 cd <plugin-root>
 powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -SkipMarketplace
 ```
 
-Use `-SkipMarketplace` here because the release root has already been added in step 3.
+这里使用 `-SkipMarketplace`，是因为第 3 步已经完成了 marketplace 注册。
 
-## Option B: Test directly from the repository checkout
+## 方案 B：从仓库源码直接安装
 
-If the repository is cloned directly onto the target machine:
+如果目标机器直接克隆了仓库源码：
 
 ```powershell
 cd <repo-root>\plugins\codex-claude-orchestrator
 powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1
 ```
 
-This route is convenient for development machines because it can register both the marketplace root and the MCP entry in one step.
+这条路径适合开发机，因为它可以一步同时注册 marketplace 和 MCP entry。
 
-## Validation checklist
+## 验证清单
 
-From the plugin root:
+在插件根目录执行：
 
 ```powershell
 node .\bin\cco.mjs doctor
@@ -109,15 +110,15 @@ codex mcp get codex-claude-orchestrator --json
 node .\scripts\test-mcp-server.mjs
 ```
 
-What success looks like:
+成功标志包括：
 
-- `doctor` shows `node` and `codex` as available
-- `codex mcp get codex-claude-orchestrator --json` prints a stdio server config
-- `test-mcp-server.mjs` ends with `MCP server smoke test passed.`
+- `doctor` 输出中 `node` 和 `codex` 为可用状态
+- `codex mcp get codex-claude-orchestrator --json` 能打印 stdio server 配置
+- `test-mcp-server.mjs` 以 `MCP server smoke test passed.` 结束
 
-## Fastest first-run task
+## 首次推荐任务
 
-Start with the mock provider because it has the fewest dependencies:
+建议先从 mock provider 开始，因为依赖最少：
 
 ```powershell
 node .\bin\cco.mjs run --config .\examples\tasks\mock-doc-preview.json --json
@@ -125,47 +126,47 @@ node .\bin\cco.mjs status --config .\examples\tasks\mock-doc-preview.json --json
 node .\bin\cco.mjs apply --config .\examples\tasks\mock-doc-preview.json --json
 ```
 
-This verifies:
+这组命令可以验证：
 
-- preview artifact generation
-- run status inspection
-- apply flow into the formal target path
+- preview artifact 生成
+- run status 检查
+- apply 到正式目标路径的流程
 
-## If you want to test Claude Code too
+## 如果还要测试 Claude Code
 
-Install and log in to Claude Code first, then run:
+先安装并登录 Claude Code，然后执行：
 
 ```powershell
 node .\bin\cco.mjs run --config .\examples\tasks\claude-doc-preview.json --json
 ```
 
-## If you want to test Codex as the execution plane
+## 如果还要测试 Codex 作为执行面
 
-Run:
+执行：
 
 ```powershell
 node .\bin\cco.mjs run --config .\examples\tasks\codex-smoke.json --json
 ```
 
-This is the cleanest API-only validation path.
+这是最干净的 API-only 验证路径。
 
-## Cleanup
+## 清理方式
 
-To remove the local MCP registration:
+只移除本地 MCP 注册：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator -KeepMarketplace
 ```
 
-To remove both the MCP entry and marketplace registration:
+同时移除 MCP entry 和 marketplace 注册：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator
 ```
 
-## Recommended reset flow for repeated testing
+## 多版本反复测试时的推荐重置流程
 
-If you are iterating on multiple versions, use this sequence:
+如果需要频繁迭代多个版本，建议使用这组命令：
 
 ```powershell
 cd <repo-root>\plugins\codex-claude-orchestrator
@@ -174,4 +175,4 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -
 node .\scripts\test-mcp-server.mjs
 ```
 
-That gives you a clean `codex-claude-orchestrator` reinstall without forcing a repeated marketplace setup.
+这样可以获得一套干净的 `codex-claude-orchestrator` 重装流程，而不需要每次都重新添加 marketplace。

@@ -1,6 +1,6 @@
 # Demo 指南
 
-[English](./DEMO.md) | [简体中文](./DEMO.zh-CN.md)
+[English](../en/DEMO.md) | [简体中文](./DEMO.md)
 
 这份文档专门用来展示一件事：
 

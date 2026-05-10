@@ -1,6 +1,6 @@
 # Demo Guide
 
-[English](./DEMO.md) | [简体中文](./DEMO.zh-CN.md)
+[English](./DEMO.md) | [简体中文](../zh-CN/DEMO.md)
 
 This guide is for showcasing one very specific story:
 

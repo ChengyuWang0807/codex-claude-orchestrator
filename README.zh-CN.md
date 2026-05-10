@@ -43,15 +43,15 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -
 
 项目提供以下安装文档：
 
-- [Install Guide (EN)](./plugins/codex-claude-orchestrator/docs/INSTALL.md)
-- [安装指南 (ZH-CN)](./plugins/codex-claude-orchestrator/docs/INSTALL.zh-CN.md)
+- [Install Guide (EN)](./plugins/codex-claude-orchestrator/docs/en/INSTALL.md)
+- [安装指南 (ZH-CN)](./plugins/codex-claude-orchestrator/docs/zh-CN/INSTALL.md)
 
 ## Demo 展示入口
 
 如果你想重点展示“Codex 通过 MCP 指挥 Claude Code”这件事，建议先看这里：
 
-- [plugins/codex-claude-orchestrator/docs/DEMO.md](./plugins/codex-claude-orchestrator/docs/DEMO.md)
-- [plugins/codex-claude-orchestrator/docs/DEMO.zh-CN.md](./plugins/codex-claude-orchestrator/docs/DEMO.zh-CN.md)
+- [plugins/codex-claude-orchestrator/docs/en/DEMO.md](./plugins/codex-claude-orchestrator/docs/en/DEMO.md)
+- [plugins/codex-claude-orchestrator/docs/zh-CN/DEMO.md](./plugins/codex-claude-orchestrator/docs/zh-CN/DEMO.md)
 
 这份 demo 指南里已经整理好了：
 

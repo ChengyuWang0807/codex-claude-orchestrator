@@ -44,15 +44,15 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -
 
 Use the dedicated installation guides:
 
-- [Install Guide (EN)](./plugins/codex-claude-orchestrator/docs/INSTALL.md)
-- [安装指南 (ZH-CN)](./plugins/codex-claude-orchestrator/docs/INSTALL.zh-CN.md)
+- [Install Guide (EN)](./plugins/codex-claude-orchestrator/docs/en/INSTALL.md)
+- [安装指南 (ZH-CN)](./plugins/codex-claude-orchestrator/docs/zh-CN/INSTALL.md)
 
 ## Demo gallery
 
 If you want to showcase the MCP's ability to let Codex orchestrate Claude Code, start here:
 
-- [plugins/codex-claude-orchestrator/docs/DEMO.md](./plugins/codex-claude-orchestrator/docs/DEMO.md)
-- [plugins/codex-claude-orchestrator/docs/DEMO.zh-CN.md](./plugins/codex-claude-orchestrator/docs/DEMO.zh-CN.md)
+- [plugins/codex-claude-orchestrator/docs/en/DEMO.md](./plugins/codex-claude-orchestrator/docs/en/DEMO.md)
+- [plugins/codex-claude-orchestrator/docs/zh-CN/DEMO.md](./plugins/codex-claude-orchestrator/docs/zh-CN/DEMO.md)
 
 The demo guide includes:
 
