@@ -1,0 +1,4 @@
+plugins/codex-claude-orchestrator/dist/
+plugins/codex-claude-orchestrator/examples/workspace/.cco/
+plugins/codex-claude-orchestrator/examples/workspace/generated/*
+!plugins/codex-claude-orchestrator/examples/workspace/generated/.gitkeep

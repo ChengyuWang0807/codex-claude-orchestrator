@@ -1,0 +1,36 @@
+{
+  "name": "codex-claude-orchestrator",
+  "version": "0.2.0",
+  "description": "Codex-first control-plane runtime, local MCP server, and plugin for orchestrating Claude Code, Codex, or mock agents in preview-first document workflows.",
+  "author": {
+    "name": "Project Maintainer"
+  },
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "claude-code",
+    "orchestration",
+    "agent",
+    "documentation"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Codex Claude Orchestrator",
+    "shortDescription": "Preview-first orchestration and MCP tools for Claude Code, Codex, and mock tasks.",
+    "longDescription": "A Codex-friendly control plane that packages task configs, session ledgers, preview/apply writes, validation, repair, MCP tools, release packaging, and watchdog loops around Claude Code, Codex, or mock execution.",
+    "developerName": "Project Maintainer",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write",
+      "Automation"
+    ],
+    "defaultPrompt": [
+      "Run the orchestration doctor and tell me which providers are available.",
+      "Use the preview-first MCP tools to run the bundled mock task and inspect the artifact.",
+      "List the recorded task sessions and explain when I should apply a preview artifact."
+    ],
+    "brandColor": "#1E6F5C"
+  }
+}

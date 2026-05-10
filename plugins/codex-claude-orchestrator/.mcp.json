@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "cco": {
+      "command": "node",
+      "args": [
+        "./bin/cco-mcp-server.mjs"
+      ],
+      "env": {
+        "CCO_MODE": "plugin"
+      }
+    }
+  }
+}

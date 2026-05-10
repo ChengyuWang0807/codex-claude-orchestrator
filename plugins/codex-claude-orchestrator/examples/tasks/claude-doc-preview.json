@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "taskName": "claude-doc-preview",
+  "purpose": "Ask Claude Code to write a high-density technical note with preview-first landing.",
+  "provider": {
+    "kind": "claude",
+    "model": "sonnet",
+    "effort": "high",
+    "sessionMode": "single",
+    "permissionMode": "bypassPermissions",
+    "name": "cco-claude-doc-preview"
+  },
+  "workspace": {
+    "root": "../workspace",
+    "ledgerDir": "../workspace/.cco"
+  },
+  "prompt": {
+    "templateFile": "../prompts/high-density-note.md",
+    "variables": {
+      "title": "Control Plane vs Execution Plane",
+      "topic": "the split between the control plane and execution plane in agent systems",
+      "audience": "engineers studying orchestration systems, coding agents, and document pipelines"
+    },
+    "contextFiles": [
+      "../context/agent-outline.md"
+    ]
+  },
+  "output": {
+    "targetPath": "generated/control-plane-vs-execution-plane.md",
+    "writeMode": "preview"
+  },
+  "validation": {
+    "requireTopLevelTitle": true,
+    "requiredHeadings": [
+      "## Navigation",
+      "## Outline",
+      "## Key Takeaways"
+    ],
+    "requireFormulaLike": true,
+    "minLines": 28,
+    "allowCodeFences": false,
+    "repairAttempts": 1
+  }
+}

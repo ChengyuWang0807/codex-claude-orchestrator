@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "taskName": "mock-doc-preview",
+  "purpose": "Validate the preview-first documentation pipeline with the deterministic mock adapter.",
+  "provider": {
+    "kind": "mock",
+    "sessionMode": "ephemeral"
+  },
+  "workspace": {
+    "root": "../workspace",
+    "ledgerDir": "../workspace/.cco"
+  },
+  "prompt": {
+    "templateFile": "../prompts/high-density-note.md",
+    "variables": {
+      "title": "Control Plane vs Execution Plane",
+      "topic": "the split between the control plane and execution plane in agent systems",
+      "audience": "engineers studying orchestration systems, coding agents, and document pipelines"
+    },
+    "contextFiles": [
+      "../context/agent-outline.md"
+    ]
+  },
+  "output": {
+    "targetPath": "generated/control-plane-vs-execution-plane.md",
+    "writeMode": "preview"
+  },
+  "validation": {
+    "requireTopLevelTitle": true,
+    "requiredHeadings": [
+      "## Navigation",
+      "## Outline",
+      "## Key Takeaways"
+    ],
+    "requireFormulaLike": true,
+    "minLines": 24,
+    "allowCodeFences": false,
+    "repairAttempts": 0
+  }
+}

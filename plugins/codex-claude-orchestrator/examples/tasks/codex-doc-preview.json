@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "taskName": "codex-doc-preview",
+  "purpose": "Ask Codex to write a high-density technical note with preview-first landing.",
+  "provider": {
+    "kind": "codex",
+    "model": "gpt-5",
+    "sessionMode": "single",
+    "sandbox": "read-only"
+  },
+  "workspace": {
+    "root": "../workspace",
+    "ledgerDir": "../workspace/.cco"
+  },
+  "prompt": {
+    "templateFile": "../prompts/high-density-note.md",
+    "variables": {
+      "title": "Control Plane vs Execution Plane",
+      "topic": "the split between the control plane and execution plane in agent systems",
+      "audience": "engineers studying orchestration systems, coding agents, and document pipelines"
+    },
+    "contextFiles": [
+      "../context/agent-outline.md"
+    ]
+  },
+  "output": {
+    "targetPath": "generated/control-plane-vs-execution-plane.md",
+    "writeMode": "preview"
+  },
+  "validation": {
+    "requireTopLevelTitle": true,
+    "requiredHeadings": [
+      "## Navigation",
+      "## Outline",
+      "## Key Takeaways"
+    ],
+    "requireFormulaLike": true,
+    "minLines": 28,
+    "allowCodeFences": false,
+    "repairAttempts": 1
+  }
+}

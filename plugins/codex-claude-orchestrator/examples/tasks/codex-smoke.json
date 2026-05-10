@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "taskName": "codex-smoke",
+  "purpose": "Quickly verify that the Codex adapter can return Markdown through the runtime.",
+  "provider": {
+    "kind": "codex",
+    "sessionMode": "ephemeral"
+  },
+  "workspace": {
+    "root": "../workspace",
+    "ledgerDir": "../workspace/.cco"
+  },
+  "prompt": {
+    "inline": "Only output Markdown. Return exactly these sections: `# Codex Smoke Test`, `## Navigation`, `## Outline`, and `## Key Takeaways`. Keep total lines between 8 and 12. Include one formula like `quality = depth * speed`. Do not add any extra explanation."
+  },
+  "output": {
+    "targetPath": "generated/codex-smoke-test.md",
+    "writeMode": "preview"
+  },
+  "validation": {
+    "requireTopLevelTitle": true,
+    "requiredHeadings": [
+      "## Navigation",
+      "## Outline",
+      "## Key Takeaways"
+    ],
+    "requireFormulaLike": true,
+    "minLines": 8,
+    "allowCodeFences": false,
+    "repairAttempts": 1
+  }
+}
