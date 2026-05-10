@@ -142,6 +142,33 @@ The bundled MCP smoke test covers:
 - `cco_get_run_status`
 - `cco_apply_preview_artifact`
 
+## Demo gallery
+
+If you want to show the specific story of "Codex commands Claude Code through `cco`", use the demo guide:
+
+- [Demo Guide](./docs/DEMO.md)
+- [简体中文](./docs/DEMO.zh-CN.md)
+
+The most useful live demos are:
+
+- preview-only Claude delegation
+- validation-gated apply
+- persistent task-session reuse
+- Claude-vs-Codex execution-plane comparison
+
+Quick copy-paste demo for Codex:
+
+```text
+Use the `cco` MCP server to demonstrate Codex controlling Claude Code.
+
+1. Run `cco_doctor`.
+2. Run `cco_list_tasks`.
+3. Run the `claude-doc-preview` task.
+4. Inspect the latest run status.
+5. Do not apply the preview artifact yet.
+6. Tell me which work stayed in Codex, which work was delegated to Claude Code, where the preview artifact was written, and whether validation passed.
+```
+
 ## MCP tools
 
 The local MCP server exposes task-oriented tools instead of raw shell passthrough:

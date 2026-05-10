@@ -46,6 +46,20 @@ Use the dedicated installation guide for another computer:
 
 - [plugins/codex-claude-orchestrator/docs/INSTALL.md](./plugins/codex-claude-orchestrator/docs/INSTALL.md)
 
+## Demo gallery
+
+If you want to showcase the MCP's ability to let Codex orchestrate Claude Code, start here:
+
+- [plugins/codex-claude-orchestrator/docs/DEMO.md](./plugins/codex-claude-orchestrator/docs/DEMO.md)
+- [plugins/codex-claude-orchestrator/docs/DEMO.zh-CN.md](./plugins/codex-claude-orchestrator/docs/DEMO.zh-CN.md)
+
+The demo guide includes:
+
+- preview-only Claude delegation
+- validation-gated apply
+- persistent task-session reuse
+- Claude-vs-Codex execution-plane comparison
+
 ## Reinstall for iterative testing
 
 If you are testing multiple versions and want to remove the previous install first, use this reset flow:

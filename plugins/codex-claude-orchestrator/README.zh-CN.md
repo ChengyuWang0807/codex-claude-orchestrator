@@ -142,6 +142,33 @@ node .\scripts\test-mcp-server.mjs
 - `cco_get_run_status`
 - `cco_apply_preview_artifact`
 
+## Demo 展示库
+
+如果你想重点展示“Codex 通过 `cco` 指挥 Claude Code”这个故事，建议直接使用 demo 指南：
+
+- [Demo Guide](./docs/DEMO.md)
+- [简体中文](./docs/DEMO.zh-CN.md)
+
+最适合现场展示的几组 demo 是：
+
+- 只生成 preview 的 Claude 委派演示
+- 校验通过后再 apply 的治理演示
+- 持久任务会话复用演示
+- Claude 执行面 vs Codex 执行面对比演示
+
+可以直接贴给 Codex 的最小演示词：
+
+```text
+Use the `cco` MCP server to demonstrate Codex controlling Claude Code.
+
+1. Run `cco_doctor`.
+2. Run `cco_list_tasks`.
+3. Run the `claude-doc-preview` task.
+4. Inspect the latest run status.
+5. Do not apply the preview artifact yet.
+6. Tell me which work stayed in Codex, which work was delegated to Claude Code, where the preview artifact was written, and whether validation passed.
+```
+
 ## MCP 工具列表
 
 本地 MCP Server 暴露的是“任务级工具”，不是原始 shell 透传：

@@ -45,6 +45,20 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -
 
 - [plugins/codex-claude-orchestrator/docs/INSTALL.md](./plugins/codex-claude-orchestrator/docs/INSTALL.md)
 
+## Demo 展示入口
+
+如果你想重点展示“Codex 通过 MCP 指挥 Claude Code”这件事，建议先看这里：
+
+- [plugins/codex-claude-orchestrator/docs/DEMO.md](./plugins/codex-claude-orchestrator/docs/DEMO.md)
+- [plugins/codex-claude-orchestrator/docs/DEMO.zh-CN.md](./plugins/codex-claude-orchestrator/docs/DEMO.zh-CN.md)
+
+这份 demo 指南里已经整理好了：
+
+- 只生成 preview 的 Claude 委派演示
+- 校验通过后再 apply 的治理演示
+- 持久任务会话复用演示
+- Claude 执行面 vs Codex 执行面对比演示
+
 ## 迭代测试时如何先卸载旧版本
 
 如果你是在反复测试不同版本，建议每次先卸载旧的 `cco`，再重新安装：
