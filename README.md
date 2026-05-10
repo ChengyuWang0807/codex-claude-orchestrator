@@ -1,5 +1,7 @@
 # codex-claude-orchestrator
 
+[English](./README.md) | [简体中文](./README.zh-CN.md)
+
 This repository is a standalone marketplace-style distribution of **Codex Claude Orchestrator**.
 
 It is designed so that Codex users can install the plugin layer and the MCP layer from one clean repository, instead of pulling an unrelated larger workspace.

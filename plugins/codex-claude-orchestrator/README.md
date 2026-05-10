@@ -1,5 +1,7 @@
 # Codex Claude Orchestrator
 
+[English](./README.md) | [简体中文](./README.zh-CN.md)
+
 Codex Claude Orchestrator is a publishable control-plane extension for Codex. It packages four layers into one installable unit:
 
 - a local CLI runtime for repeatable task execution
