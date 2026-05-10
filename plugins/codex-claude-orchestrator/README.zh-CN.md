@@ -64,6 +64,23 @@ plugins/codex-claude-orchestrator/
 
 - [Install Guide](./docs/INSTALL.md)
 
+## 迭代测试时如何先卸载旧版本
+
+如果你是在反复测试新版本，建议先把旧的 `cco` 注册卸掉，再重新安装：
+
+```powershell
+cd <repo-root>\plugins\codex-claude-orchestrator
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco -KeepMarketplace
+powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force
+```
+
+如果你想连 marketplace 注册一起清掉，做一次完全重置，可以执行：
+
+```powershell
+cd <repo-root>\plugins\codex-claude-orchestrator
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco
+```
+
 ## 直接对 Codex 说什么
 
 如果你想让 Codex 从零开始直接替你完成部署，可以把这段话原样发给它：
@@ -74,11 +91,12 @@ plugins/codex-claude-orchestrator/
 1. 克隆 `https://github.com/ChengyuWang0807/codex-claude-orchestrator.git`。
 2. 进入 `.\codex-claude-orchestrator\plugins\codex-claude-orchestrator`。
 3. 如果需要先登录 Codex，请提醒我执行 `codex login --with-api-key`。
-4. 运行 `powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force`。
-5. 运行 `codex mcp get cco --json`。
-6. 运行 `node .\scripts\test-mcp-server.mjs`。
-7. 运行 `node .\bin\cco.mjs run --config .\examples\tasks\mock-doc-preview.json --json`。
-8. 最后告诉我拉取、安装、MCP 接线、mock preview 工作流是否都成功了；如果失败，请指出失败步骤和修复方法。
+4. 如果已经装过旧版本，请先运行 `powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco -KeepMarketplace`。
+5. 运行 `powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force`。
+6. 运行 `codex mcp get cco --json`。
+7. 运行 `node .\scripts\test-mcp-server.mjs`。
+8. 运行 `node .\bin\cco.mjs run --config .\examples\tasks\mock-doc-preview.json --json`。
+9. 最后告诉我拉取、卸载、安装、MCP 接线、mock preview 工作流是否都成功了；如果失败，请指出失败步骤和修复方法。
 ```
 
 ### 方案 1：Codex 插件 + MCP

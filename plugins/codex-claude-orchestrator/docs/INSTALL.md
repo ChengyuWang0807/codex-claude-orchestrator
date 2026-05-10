@@ -160,3 +160,16 @@ To remove both the MCP entry and marketplace registration:
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco
 ```
+
+## Recommended reset flow for repeated testing
+
+If you are iterating on multiple versions, use this sequence:
+
+```powershell
+cd <repo-root>\plugins\codex-claude-orchestrator
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco -KeepMarketplace
+powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force
+node .\scripts\test-mcp-server.mjs
+```
+
+That gives you a clean `cco` reinstall without forcing you to re-add the marketplace each time.
