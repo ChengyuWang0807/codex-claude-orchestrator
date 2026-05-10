@@ -1241,6 +1241,17 @@ async function resolveClaudeCommand() {
       return exePath;
     }
   }
+
+  const executable = matches.find((item) => item.toLowerCase().endsWith(".exe"));
+  if (executable) {
+    return executable;
+  }
+
+  const cmdWrapper = matches.find((item) => item.toLowerCase().endsWith(".cmd"));
+  if (cmdWrapper) {
+    return cmdWrapper;
+  }
+
   const fallback = "D:\\nvm4w\\nodejs\\node_modules\\@anthropic-ai\\claude-code\\bin\\claude.exe";
   if (await pathExists(fallback)) {
     return fallback;
