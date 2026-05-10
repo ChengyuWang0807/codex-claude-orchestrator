@@ -6,7 +6,7 @@ This guide is for showcasing one very specific story:
 
 ```text
 Codex = control plane
-cco MCP = orchestration contract
+codex-claude-orchestrator MCP = orchestration contract
 Claude Code = execution plane
 ```
 
@@ -24,12 +24,12 @@ If you want to prove that Codex is not just "prompting Claude Code directly", bu
 
 ## Demo 1: Preview-Only Claude Delegation
 
-Use this first if you want the shortest proof that Codex can command Claude Code through `cco`.
+Use this first if you want the shortest proof that Codex can command Claude Code through `codex-claude-orchestrator`.
 
 What to paste into Codex:
 
 ```text
-Use the `cco` MCP server to demonstrate Codex controlling Claude Code.
+Use the `codex-claude-orchestrator` MCP server to demonstrate Codex controlling Claude Code.
 
 1. Run `cco_doctor`.
 2. Run `cco_list_tasks`.
@@ -37,7 +37,7 @@ Use the `cco` MCP server to demonstrate Codex controlling Claude Code.
 4. Inspect the latest run status.
 5. Do not apply the preview artifact yet.
 6. Tell me:
-   - which steps were executed through `cco`,
+   - which steps were executed through `codex-claude-orchestrator`,
    - which part stayed in Codex,
    - where the preview artifact was written,
    - whether the validation checks passed.
@@ -63,10 +63,10 @@ Use this when you want to show that Codex is acting like a release manager rathe
 What to paste into Codex:
 
 ```text
-Use the `cco` MCP server to run the `claude-doc-preview` task, inspect the preview, and apply it only if validation passed.
+Use the `codex-claude-orchestrator` MCP server to run the `claude-doc-preview` task, inspect the preview, and apply it only if validation passed.
 
 Workflow:
-1. Run the task through `cco`.
+1. Run the task through `codex-claude-orchestrator`.
 2. Check the latest run status.
 3. If validation passed, apply the preview artifact.
 4. Report:
@@ -79,7 +79,7 @@ What this proves:
 
 - Claude Code is not the final authority over landing changes.
 - Codex can enforce a preview-first workflow.
-- `cco` exposes a structured "apply only after inspection" contract.
+- `codex-claude-orchestrator` exposes a structured "apply only after inspection" contract.
 
 Expected final path after apply:
 
@@ -94,7 +94,7 @@ Use this when you want to show that the system is not stateless fire-and-forget 
 What to paste into Codex:
 
 ```text
-Use the `cco` MCP server to prove that Claude Code can stay bound to a persistent task session.
+Use the `codex-claude-orchestrator` MCP server to prove that Claude Code can stay bound to a persistent task session.
 
 1. Run `claude-doc-preview` twice.
 2. Run `cco_list_sessions`.
@@ -115,7 +115,7 @@ Use this when you want to explain the architecture rather than only the mechanic
 What to paste into Codex:
 
 ```text
-Use the `cco` MCP server to compare `claude-doc-preview` and `codex-doc-preview`.
+Use the `codex-claude-orchestrator` MCP server to compare `claude-doc-preview` and `codex-doc-preview`.
 
 1. Run both tasks in preview mode.
 2. Inspect both run statuses.
@@ -140,7 +140,7 @@ Use this for recorded demos, CI checks, onboarding, or situations where Claude C
 What to paste into Codex:
 
 ```text
-Use the `cco` MCP server to demonstrate the preview-first pipeline without any external executor.
+Use the `codex-claude-orchestrator` MCP server to demonstrate the preview-first pipeline without any external executor.
 
 1. Run `mock-doc-preview`.
 2. Inspect the run status.
@@ -158,7 +158,7 @@ What this proves:
 
 If you are presenting the project live, this is the cleanest sequence:
 
-1. Show that `cco` is visible in Codex or CC Switch.
+1. Show that `codex-claude-orchestrator` is visible in Codex or CC Switch.
 2. Run Demo 1 to show Codex delegating to Claude Code.
 3. Run Demo 2 to show the apply gate.
 4. Run Demo 3 if you want to talk about long-running or iterative work.

@@ -66,11 +66,11 @@ plugins/codex-claude-orchestrator/
 
 ## 迭代测试时如何先卸载旧版本
 
-如果你是在反复测试新版本，建议先把旧的 `cco` 注册卸掉，再重新安装：
+如果你是在反复测试新版本，建议先把旧的 `cco` 或新的 `codex-claude-orchestrator` 注册卸掉，再重新安装：
 
 ```powershell
 cd <repo-root>\plugins\codex-claude-orchestrator
-powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco -KeepMarketplace
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator -KeepMarketplace
 powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force
 ```
 
@@ -78,7 +78,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -
 
 ```powershell
 cd <repo-root>\plugins\codex-claude-orchestrator
-powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator
 ```
 
 ## 直接对 Codex 说什么
@@ -91,9 +91,9 @@ powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1
 1. 克隆 `https://github.com/ChengyuWang0807/codex-claude-orchestrator.git`。
 2. 进入 `.\codex-claude-orchestrator\plugins\codex-claude-orchestrator`。
 3. 如果需要先登录 Codex，请提醒我执行 `codex login --with-api-key`。
-4. 如果已经装过旧版本，请先运行 `powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco -KeepMarketplace`。
+4. 如果已经装过旧的 `cco` 或新的 `codex-claude-orchestrator`，请先运行 `powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator -KeepMarketplace`。
 5. 运行 `powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force`。
-6. 运行 `codex mcp get cco --json`。
+6. 运行 `codex mcp get codex-claude-orchestrator --json`。
 7. 运行 `node .\scripts\test-mcp-server.mjs`。
 8. 运行 `node .\bin\cco.mjs run --config .\examples\tasks\mock-doc-preview.json --json`。
 9. 最后告诉我拉取、卸载、安装、MCP 接线、mock preview 工作流是否都成功了；如果失败，请指出失败步骤和修复方法。
@@ -111,7 +111,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1
 这一步会做两件事：
 
 - 如果上层存在 marketplace 根目录，就把它注册进去
-- 把本地 MCP Server 注册为 `cco`
+- 把本地 MCP Server 注册为 `codex-claude-orchestrator`
 
 ### 方案 2：API key 用户，无需 ChatGPT 账号 UI
 
@@ -119,7 +119,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1
 
 ```powershell
 codex login --with-api-key
-codex mcp add cco -- node D:\path\to\plugins\codex-claude-orchestrator\bin\cco-mcp-server.mjs
+codex mcp add codex-claude-orchestrator -- node D:\path\to\plugins\codex-claude-orchestrator\bin\cco-mcp-server.mjs
 ```
 
 这条命令是最重要的“可移植安装契约”，特别适合 headless 或多机器切换的场景。
@@ -128,7 +128,7 @@ codex mcp add cco -- node D:\path\to\plugins\codex-claude-orchestrator\bin\cco-m
 
 ```powershell
 node .\bin\cco.mjs doctor
-codex mcp get cco --json
+codex mcp get codex-claude-orchestrator --json
 node .\scripts\test-mcp-server.mjs
 ```
 
@@ -144,7 +144,7 @@ node .\scripts\test-mcp-server.mjs
 
 ## Demo 展示库
 
-如果你想重点展示“Codex 通过 `cco` 指挥 Claude Code”这个故事，建议直接使用 demo 指南：
+如果你想重点展示“Codex 通过 `codex-claude-orchestrator` 指挥 Claude Code”这个故事，建议直接使用 demo 指南：
 
 - [Demo Guide](./docs/DEMO.md)
 - [简体中文](./docs/DEMO.zh-CN.md)
@@ -159,7 +159,7 @@ node .\scripts\test-mcp-server.mjs
 可以直接贴给 Codex 的最小演示词：
 
 ```text
-请使用 `cco` MCP server 演示 Codex 如何控制 Claude Code。
+请使用 `codex-claude-orchestrator` MCP server 演示 Codex 如何控制 Claude Code。
 
 1. 运行 `cco_doctor`。
 2. 运行 `cco_list_tasks`。

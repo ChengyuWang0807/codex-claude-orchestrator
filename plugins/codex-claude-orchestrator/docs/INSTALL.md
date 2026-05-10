@@ -68,13 +68,13 @@ codex plugin marketplace add D:\tools\codex-claude-orchestrator-v0.2.0
 The most explicit path is:
 
 ```powershell
-codex mcp add cco -- node <plugin-root>\bin\cco-mcp-server.mjs
+codex mcp add codex-claude-orchestrator -- node <plugin-root>\bin\cco-mcp-server.mjs
 ```
 
 Example:
 
 ```powershell
-codex mcp add cco -- node D:\tools\codex-claude-orchestrator-v0.2.0\plugins\codex-claude-orchestrator\bin\cco-mcp-server.mjs
+codex mcp add codex-claude-orchestrator -- node D:\tools\codex-claude-orchestrator-v0.2.0\plugins\codex-claude-orchestrator\bin\cco-mcp-server.mjs
 ```
 
 You can also use the bundled installer:
@@ -103,14 +103,14 @@ From the plugin root:
 
 ```powershell
 node .\bin\cco.mjs doctor
-codex mcp get cco --json
+codex mcp get codex-claude-orchestrator --json
 node .\scripts\test-mcp-server.mjs
 ```
 
 What success looks like:
 
 - `doctor` shows `node` and `codex` as available
-- `codex mcp get cco --json` prints a stdio server config
+- `codex mcp get codex-claude-orchestrator --json` prints a stdio server config
 - `test-mcp-server.mjs` ends with `MCP server smoke test passed.`
 
 ## Fastest first-run task
@@ -152,13 +152,13 @@ This is the cleanest API-only validation path.
 To remove the local MCP registration:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco -KeepMarketplace
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator -KeepMarketplace
 ```
 
 To remove both the MCP entry and marketplace registration:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator
 ```
 
 ## Recommended reset flow for repeated testing
@@ -167,9 +167,9 @@ If you are iterating on multiple versions, use this sequence:
 
 ```powershell
 cd <repo-root>\plugins\codex-claude-orchestrator
-powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco -KeepMarketplace
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator -KeepMarketplace
 powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force
 node .\scripts\test-mcp-server.mjs
 ```
 
-That gives you a clean `cco` reinstall without forcing you to re-add the marketplace each time.
+That gives you a clean `codex-claude-orchestrator` reinstall without forcing you to re-add the marketplace each time.

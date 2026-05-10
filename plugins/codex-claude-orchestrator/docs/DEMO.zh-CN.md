@@ -6,7 +6,7 @@
 
 ```text
 Codex = 控制面
-cco MCP = 编排契约层
+codex-claude-orchestrator MCP = 编排契约层
 Claude Code = 执行面
 ```
 
@@ -24,12 +24,12 @@ Claude Code = 执行面
 
 ## Demo 1：只生成 Preview，由 Claude Code 执行
 
-如果你想用最短路径证明“Codex 可以通过 `cco` 指挥 Claude Code”，就先跑这个。
+如果你想用最短路径证明“Codex 可以通过 `codex-claude-orchestrator` 指挥 Claude Code”，就先跑这个。
 
 可以直接贴给 Codex：
 
 ```text
-请使用 `cco` MCP server 演示 Codex 如何控制 Claude Code。
+请使用 `codex-claude-orchestrator` MCP server 演示 Codex 如何控制 Claude Code。
 
 1. 运行 `cco_doctor`。
 2. 运行 `cco_list_tasks`。
@@ -37,7 +37,7 @@ Claude Code = 执行面
 4. 检查最新一次运行状态。
 5. 先不要 apply preview artifact。
 6. 最后告诉我：
-   - 哪些步骤是通过 `cco` 执行的，
+   - 哪些步骤是通过 `codex-claude-orchestrator` 执行的，
    - 哪些部分仍然由 Codex 自己负责，
    - preview artifact 被写到了哪里，
    - validation checks 是否通过。
@@ -63,10 +63,10 @@ Claude Code = 执行面
 可以直接贴给 Codex：
 
 ```text
-请使用 `cco` MCP server 运行 `claude-doc-preview` 任务，检查 preview，并且只在 validation passed 的情况下才 apply。
+请使用 `codex-claude-orchestrator` MCP server 运行 `claude-doc-preview` 任务，检查 preview，并且只在 validation passed 的情况下才 apply。
 
 工作流要求：
-1. 通过 `cco` 运行该任务。
+1. 通过 `codex-claude-orchestrator` 运行该任务。
 2. 检查最新一次运行状态。
 3. 如果 validation passed，则 apply preview artifact。
 4. 最后汇报：
@@ -79,7 +79,7 @@ Claude Code = 执行面
 
 - Claude Code 不是最终落盘的决策者。
 - Codex 可以执行 preview-first 治理流程。
-- `cco` 暴露的是“先检查、再 apply”的结构化契约，而不是裸奔式调用。
+- `codex-claude-orchestrator` 暴露的是“先检查、再 apply”的结构化契约，而不是裸奔式调用。
 
 如果 apply 成功，正式文件会落到：
 
@@ -94,7 +94,7 @@ examples/workspace/generated/control-plane-vs-execution-plane.md
 可以直接贴给 Codex：
 
 ```text
-请使用 `cco` MCP server 证明 Claude Code 可以绑定到一个持久任务会话。
+请使用 `codex-claude-orchestrator` MCP server 证明 Claude Code 可以绑定到一个持久任务会话。
 
 1. 连续运行两次 `claude-doc-preview`。
 2. 运行 `cco_list_sessions`。
@@ -115,7 +115,7 @@ examples/workspace/generated/control-plane-vs-execution-plane.md
 可以直接贴给 Codex：
 
 ```text
-请使用 `cco` MCP server 对比 `claude-doc-preview` 和 `codex-doc-preview`。
+请使用 `codex-claude-orchestrator` MCP server 对比 `claude-doc-preview` 和 `codex-doc-preview`。
 
 1. 以 preview mode 运行这两个任务。
 2. 检查它们各自的 run status。
@@ -140,7 +140,7 @@ examples/workspace/generated/control-plane-vs-execution-plane.md
 可以直接贴给 Codex：
 
 ```text
-请使用 `cco` MCP server 演示一条不依赖外部执行器的 preview-first pipeline。
+请使用 `codex-claude-orchestrator` MCP server 演示一条不依赖外部执行器的 preview-first pipeline。
 
 1. 运行 `mock-doc-preview`。
 2. 检查 run status。
@@ -158,7 +158,7 @@ examples/workspace/generated/control-plane-vs-execution-plane.md
 
 如果你是现场展示项目，最顺的顺序是：
 
-1. 先展示 `cco` 已经被 Codex 或 CC Switch 识别到。
+1. 先展示 `codex-claude-orchestrator` 已经被 Codex 或 CC Switch 识别到。
 2. 跑 Demo 1，展示 Codex 如何把任务委托给 Claude Code。
 3. 跑 Demo 2，展示 apply 闸门。
 4. 如果你要讲长期任务或多轮修订，再跑 Demo 3。

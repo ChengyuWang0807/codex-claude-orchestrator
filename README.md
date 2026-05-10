@@ -30,7 +30,7 @@ codex plugin marketplace add ChengyuWang0807/codex-claude-orchestrator
 After cloning or downloading the repository, run:
 
 ```powershell
-codex mcp add cco -- node <repo-root>\plugins\codex-claude-orchestrator\bin\cco-mcp-server.mjs
+codex mcp add codex-claude-orchestrator -- node <repo-root>\plugins\codex-claude-orchestrator\bin\cco-mcp-server.mjs
 ```
 
 ### 3. Or use the bundled installer
@@ -60,13 +60,15 @@ The demo guide includes:
 - persistent task-session reuse
 - Claude-vs-Codex execution-plane comparison
 
+The default MCP server name is `codex-claude-orchestrator`. The older short alias `cco` is kept only as a legacy compatibility name during migration.
+
 ## Reinstall for iterative testing
 
 If you are testing multiple versions and want to remove the previous install first, use this reset flow:
 
 ```powershell
 cd <repo-root>\plugins\codex-claude-orchestrator
-powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco -KeepMarketplace
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator -KeepMarketplace
 powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force
 ```
 
@@ -74,7 +76,7 @@ If you also want to remove the marketplace registration and do a full clean rese
 
 ```powershell
 cd <repo-root>\plugins\codex-claude-orchestrator
-powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator
 ```
 
 ## What to tell Codex
@@ -87,9 +89,9 @@ Please deploy and verify codex-claude-orchestrator from GitHub using HTTPS only.
 1. Clone `https://github.com/ChengyuWang0807/codex-claude-orchestrator.git`.
 2. Enter `.\codex-claude-orchestrator\plugins\codex-claude-orchestrator`.
 3. If Codex login is required, tell me to run `codex login --with-api-key` first.
-4. If an old `cco` install exists, run `powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco -KeepMarketplace` first.
+4. If an old `cco` or `codex-claude-orchestrator` install exists, run `powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator -KeepMarketplace` first.
 5. Run `powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force`.
-6. Run `codex mcp get cco --json`.
+6. Run `codex mcp get codex-claude-orchestrator --json`.
 7. Run `node .\scripts\test-mcp-server.mjs`.
 8. Run `node .\bin\cco.mjs run --config .\examples\tasks\mock-doc-preview.json --json`.
 9. Tell me whether clone, uninstall, installation, MCP wiring, and the mock preview workflow all succeeded. If anything fails, show the failing step and the fix.
@@ -101,7 +103,7 @@ From the plugin root:
 
 ```powershell
 node .\bin\cco.mjs doctor
-codex mcp get cco --json
+codex mcp get codex-claude-orchestrator --json
 node .\scripts\test-mcp-server.mjs
 ```
 

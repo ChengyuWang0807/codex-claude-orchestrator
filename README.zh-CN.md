@@ -29,7 +29,7 @@ codex plugin marketplace add ChengyuWang0807/codex-claude-orchestrator
 在你 clone 或下载仓库之后，执行：
 
 ```powershell
-codex mcp add cco -- node <repo-root>\plugins\codex-claude-orchestrator\bin\cco-mcp-server.mjs
+codex mcp add codex-claude-orchestrator -- node <repo-root>\plugins\codex-claude-orchestrator\bin\cco-mcp-server.mjs
 ```
 
 ### 3. 或者直接使用内置安装脚本
@@ -59,13 +59,15 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -
 - 持久任务会话复用演示
 - Claude 执行面 vs Codex 执行面对比演示
 
+默认的 MCP server 名字现在是 `codex-claude-orchestrator`。旧的短别名 `cco` 仅作为迁移过程中的兼容名保留。
+
 ## 迭代测试时如何先卸载旧版本
 
-如果你是在反复测试不同版本，建议每次先卸载旧的 `cco`，再重新安装：
+如果你是在反复测试不同版本，建议每次先卸载旧的 `cco` 或新的 `codex-claude-orchestrator`，再重新安装：
 
 ```powershell
 cd <repo-root>\plugins\codex-claude-orchestrator
-powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco -KeepMarketplace
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator -KeepMarketplace
 powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force
 ```
 
@@ -73,7 +75,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -
 
 ```powershell
 cd <repo-root>\plugins\codex-claude-orchestrator
-powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator
 ```
 
 ## 直接对 Codex 说什么
@@ -86,9 +88,9 @@ powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1
 1. 克隆 `https://github.com/ChengyuWang0807/codex-claude-orchestrator.git`。
 2. 进入 `.\codex-claude-orchestrator\plugins\codex-claude-orchestrator`。
 3. 如果需要先登录 Codex，请提醒我执行 `codex login --with-api-key`。
-4. 如果已经装过旧版本，请先运行 `powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias cco -KeepMarketplace`。
+4. 如果已经装过旧的 `cco` 或新的 `codex-claude-orchestrator`，请先运行 `powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1 -Alias codex-claude-orchestrator -KeepMarketplace`。
 5. 运行 `powershell -ExecutionPolicy Bypass -File .\scripts\install-codex-extension.ps1 -Force`。
-6. 运行 `codex mcp get cco --json`。
+6. 运行 `codex mcp get codex-claude-orchestrator --json`。
 7. 运行 `node .\scripts\test-mcp-server.mjs`。
 8. 运行 `node .\bin\cco.mjs run --config .\examples\tasks\mock-doc-preview.json --json`。
 9. 最后告诉我拉取、卸载、安装、MCP 接线、mock preview 工作流是否都成功了；如果失败，请指出失败步骤和修复方法。
@@ -100,7 +102,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-codex-extension.ps1
 
 ```powershell
 node .\bin\cco.mjs doctor
-codex mcp get cco --json
+codex mcp get codex-claude-orchestrator --json
 node .\scripts\test-mcp-server.mjs
 ```
 

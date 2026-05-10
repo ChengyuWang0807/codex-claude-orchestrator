@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "cco": {
+    "codex-claude-orchestrator": {
       "command": "node",
       "args": [
         "./bin/cco-mcp-server.mjs"
